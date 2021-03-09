@@ -130,6 +130,17 @@ your Git pane is cleared up afterwards.d*
     -   Each bar should have segments for whether the laureate was born
         in the US or not.
 
+yes , because in buzzfeed we analyzing the data to search for more
+understanding the data and get information form it we go deep and deep
+and make a lot of filtrations to understanding the data
+
+``` r
+nobel_living_science <- nobel_living_science %>% mutate( born_country_us = if_else(born_country == "USA", "USA", "Other"))
+nobel_living_science %>%ggplot(aes(x = country_us,y=born_country_us, fill = category)) + geom_bar(stat = "identity", position = "dodge", orientation="horizontal")
+```
+
+![](lab-05_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
 your Git pane is cleared up afterwards.*
