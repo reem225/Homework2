@@ -93,6 +93,17 @@ your Git pane is cleared up afterwards.d*
 
 ## But of those US-based Nobel laureates, many were born in other countries
 
+``` r
+nobel_living_science <- nobel_living %>%
+filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
+nobel_living_science %>%
+ggplot(aes(x=country_us,y=category,fill=category)) +
+geom_bar(stat="identity",position="dodge")+ 
+coord_flip()
+```
+
+![](lab-05_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
 4.  Create a new variable called `born_country_us` that has the value
     `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
     How many of the winners are born in the US?
